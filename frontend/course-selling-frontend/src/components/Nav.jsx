@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";
 
 function Nav() {
-    // const navigate = useNavigate();  
+    const navigate = useNavigate();  
     const [username, setUserName] = useState(null);
 
     useEffect(() => {
@@ -19,28 +19,39 @@ function Nav() {
             headers: {
                 "token": "Bearer " + localStorage.getItem("token")
             }
+        }).then((res) => {
+            return res.json()
+        }).then((data) => {
+            if(data.username) {
+                setUserName(data.username)
+            }
         })
     }, [])
 
     if(username) {
-        return <div style={{marginLeft: 10}}>
+        return <div style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    padding: 4,
+                    zIndex: 1
+                }}>
                 <Typography variant={"h6"}>Coursera</Typography>
 
                 <div style={{display: "flex"}}>
                     <div style={{marginRight: 10, display: "flex"}}>
                     <div style={{marginRight: 10}}>
                             <Button
-                                // onClick={() => {
-                                //     navigate("/addcourse")
-                                // }}
+                                onClick={() => {
+                                    navigate("/addcourse")
+                                }}
                             >Add course</Button>
                         </div>
 
                         <div style={{marginRight: 10}}>
                             <Button
-                                // onClick={() => {
-                                //     navigate("/courses")
-                                // }}
+                                onClick={() => {
+                                    navigate("/courses")
+                                }}
                             >Courses</Button>
                         </div>
 

@@ -24,7 +24,7 @@ function Register() {
             return res.json()
         }).then((data) => {
             console.log(data);
-            localStorage.setItem("signuptoken", data.jwtToken)
+            localStorage.setItem("token", data.jwtToken)
         })
         console.log("Signup Successfully.");
     }

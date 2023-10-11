@@ -7,6 +7,7 @@ function CreateCourse() {
     const [title, setTitle] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [price, setPrice] = React.useState(0);
+    const [image, setImage] = React.useState("");
     const [published, setPublished] = React.useState(false);
 
 
@@ -25,6 +26,7 @@ function CreateCourse() {
                 "token": "Bearer " + localStorage.getItem("token")
             }
         });
+        alert("Added course!");
     }
 
     return <div>
@@ -32,6 +34,7 @@ function CreateCourse() {
         <h1>Create Course Page</h1>
         <TextField style={{margin:"7px"}} id="standard-basic" label="Title" variant="standard" onChange={(e) => { setTitle(e.target.value)}}/>
         <TextField style={{margin:"7px"}} id="standard-basic" label="Description" variant="standard" onChange={(e) => { setDescription(e.target.value)}}/>
+        <TextField style={{margin:"7px"}} id="standard-basic"  label="Image link" variant="standard" onChange={(e) => {setImage(e.target.value) }}/>
         <TextField style={{margin:"7px"}} type="number" id="standard-basic" label="Price" variant="standard" onChange={(e) => { setPrice(parseInt(e.target.value))}}/>
         <TextField style={{margin:"7px"}} id="standard-basic" label="Published" variant="standard" onChange={(e) => { setPublished(e.target.value)}}/>
         {/* <button onClick={() => console.log(title)}>Create Course</button> */}
