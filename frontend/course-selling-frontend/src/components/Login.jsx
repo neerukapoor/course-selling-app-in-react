@@ -21,7 +21,6 @@ function Login() {
                     "pass":pass
                 }
             }).then((res) => {
-                console.log("here");
                 return res.json();
             }).then((data)=>{
                 console.log(data);

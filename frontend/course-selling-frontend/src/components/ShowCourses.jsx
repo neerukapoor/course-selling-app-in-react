@@ -15,7 +15,6 @@ function ShowCourses() {
         }).then((res)=>{
             return res.json();
         }).then((data) => {
-            console.log(data);
             setCourses(data.allCourses);
         })
     }, [])
@@ -43,7 +42,6 @@ function Course(course) {
         <Typography textAlign={"center"} variant="subtitle1">{course.description}</Typography>
         <img src={course.imageLink} style={{width: 300}} ></img>
         <div style={{display: "flex", justifyContent: "center", marginTop: 20}}>
-        {console.log("skdhf " + course._id)}
             <Button variant="contained" size="large" onClick={() => {
                 navigate("/course/" + course._id);
             }}>Edit</Button>
