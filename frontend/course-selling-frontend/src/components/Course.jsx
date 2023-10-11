@@ -115,7 +115,7 @@ function UpdateCard({course, setCourse}) {
                     }, {
                         headers: {
                             "Content-type": "application/json",
-                            "Authorization": "Bearer " + localStorage.getItem("token")
+                            "token": "Bearer " + localStorage.getItem("token")
                         }
                     });
                     let updatedCourse = {
